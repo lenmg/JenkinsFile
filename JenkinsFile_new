@@ -1,0 +1,19 @@
+pipeline {	 
+	agent "slave1"
+	tools {
+		maven "my_mvn"
+	}
+    	stages {     	 
+    	stage("Compile") {          	 
+            	steps {               	 
+                	sh "mvn compile"          	 
+            	}     	 
+        	}     
+  agent "slave2"
+    	stage("Unit test") {          	 
+        	steps {               	 
+                	sh "mvn test"          	 
+            	}     	 
+        	}	 
+    	}
+}
