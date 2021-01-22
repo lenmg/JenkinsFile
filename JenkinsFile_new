@@ -1,5 +1,9 @@
 pipeline {	 
-	agent "slave1"
+	agent {
+  		label {
+        		label "slave1"
+  }
+}
 	tools {
 		maven "my_mvn"
 	}
@@ -9,7 +13,11 @@ pipeline {
                 	sh "mvn compile"          	 
             	}     	 
         	}     
-  agent "slave2"
+  agent {
+  		label {
+        		label "slave2"
+  }
+}
     	stage("Unit test") {          	 
         	steps {               	 
                 	sh "mvn test"          	 
