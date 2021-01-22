@@ -13,11 +13,13 @@ pipeline {
                 	sh "mvn compile"          	 
             	}     	 
         	}     
+		}
   agent {
   		label {
         		label "slave2"
   }
 }
+	stages {
     	stage("Unit test") {          	 
         	steps {               	 
                 	sh "mvn test"          	 
